@@ -111,7 +111,7 @@ resource "google_container_cluster" "primary" {
   }
   cluster_autoscaling {
     enabled = var.cluster_autoscaling.enabled
-    auto_provisioning_locations = = lookup(var.cluster_autoscaling, "auto_provisioning_locations", [])
+    auto_provisioning_locations = lookup(var.cluster_autoscaling, "auto_provisioning_locations", [])
     dynamic "auto_provisioning_defaults" {
       for_each = var.cluster_autoscaling.enabled ? [1] : []
 
