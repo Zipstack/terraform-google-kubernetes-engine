@@ -247,7 +247,7 @@ variable "cluster_autoscaling" {
     batch_node_count            = optional(number)
     enable_secure_boot          = optional(bool, false)
     enable_integrity_monitoring = optional(bool, true)
-    auto_provisioning_locations = optional(list, [])
+    auto_provisioning_locations = optional(list(string), [])
   })
   default = {
     enabled                     = false
