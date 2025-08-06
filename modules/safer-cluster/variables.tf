@@ -247,6 +247,7 @@ variable "cluster_autoscaling" {
     batch_node_count            = optional(number)
     enable_secure_boot          = optional(bool, false)
     enable_integrity_monitoring = optional(bool, true)
+    auto_provisioning_locations = optional(list, [])
   })
   default = {
     enabled                     = false
@@ -263,6 +264,7 @@ variable "cluster_autoscaling" {
     image_type                  = "COS_CONTAINERD"
     enable_secure_boot          = false
     enable_integrity_monitoring = true
+    auto_provisioning_locations = []
   }
   description = "Cluster autoscaling configuration. See [more details](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#clusterautoscaling)"
 }
