@@ -116,7 +116,6 @@ resource "google_container_cluster" "primary" {
       for_each = var.cluster_autoscaling.enabled ? [1] : []
 
       content {
-        min_cpu_platform = "AMD Milan"
         service_account  = local.service_account
         oauth_scopes     = local.node_pools_oauth_scopes["all"]
 
