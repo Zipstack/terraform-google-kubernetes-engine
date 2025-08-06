@@ -152,8 +152,9 @@ resource "google_container_cluster" "primary" {
           enable_secure_boot          = lookup(var.cluster_autoscaling, "enable_secure_boot", false)
           enable_integrity_monitoring = lookup(var.cluster_autoscaling, "enable_integrity_monitoring", true)
         }
-
-        min_cpu_platform = lookup(var.node_pools[0], "min_cpu_platform", "")
+        # hardcoding this for now
+        min_cpu_platform = "AMD Milan"
+        # min_cpu_platform = lookup(var.node_pools[0], "min_cpu_platform", "")
 
         image_type = lookup(var.cluster_autoscaling, "image_type", "COS_CONTAINERD")
       }
